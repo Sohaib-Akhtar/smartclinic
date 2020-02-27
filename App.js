@@ -24,10 +24,10 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'Public')));
 app.use(
   session({
-    secret: 'my secret',
+    secret: 'test',
     resave: false,
     saveUninitialized: false,
     store: store
@@ -35,3 +35,35 @@ app.use(
 );
 app.use(csrfProtection);
 app.use(flash());
+
+const authRoutes = require('./routes/User');
+
+app.use((req, res, next) => {
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
+    .then(user => {
+      req.user = user;
+      next();
+    })
+    .catch(err => console.log(err));
+});
+
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.isLoggedIn;
+  res.locals.csrfToken = req.csrfToken();
+  next();
+});
+
+app.use(authRoutes);
+app.use(errorController.get404);
+
+mongoose
+  .connect(MONGODB_URI)
+  .then(result => {
+    app.listen(3000);
+  })
+  .catch(err => {
+    console.log(err);
+  });
