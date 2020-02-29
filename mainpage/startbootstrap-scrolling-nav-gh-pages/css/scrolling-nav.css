@@ -131,6 +131,9 @@ section {
     font-size: 92%;
     padding: 6x 10px;
 }
+    .display-4{
+        font-size: 200%;
+    }
 }
 
 @media (max-width: 570px) {
@@ -147,6 +150,9 @@ section {
     font-size: 90%;
     padding: 4x 8px;
 }
+    .display-4{
+        font-size: 160%;
+    }
     .carousel-indicators{
         display:none;
     }
