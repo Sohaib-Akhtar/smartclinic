@@ -115,3 +115,39 @@ html, body{
 section {
   padding: 150px 0;
 }
+
+/*---Media Queries --*/
+@media (max-width: 840px) {
+  .carousel-caption{
+    top: 43%;
+}
+.carousel-caption h1{
+    font-size: 300%;
+}
+.carousel-caption h3{
+    font-size: 125%;
+}
+.carousel-caption .btn{
+    font-size: 92%;
+    padding: 6x 10px;
+}
+}
+
+@media (max-width: 570px) {
+  .carousel-caption{
+    top: 40%;
+}
+.carousel-caption h1{
+    font-size: 250%;
+}
+.carousel-caption h3{
+    font-size: 110%;
+}
+.carousel-caption .btn{
+    font-size: 90%;
+    padding: 4x 8px;
+}
+    .carousel-indicators{
+        display:none;
+    }
+}
