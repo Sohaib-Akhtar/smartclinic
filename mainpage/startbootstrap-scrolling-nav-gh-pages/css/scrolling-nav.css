@@ -13,13 +13,16 @@ html, body{
 }
 .navbar{
     padding: .8rem;
-    opacity: 60%;
 }
 .navbar-nav li{
     padding-right: 20px;
 }
 .nav-link{
     font-size: 1.1em !important;
+}
+.navbar-collapse nav-item:hover{
+    color:white;
+    text-emphasis-color: white;
 }
 
 .carousel-inner img{
@@ -135,6 +138,12 @@ section {
     .display-4{
         font-size: 200%;
     }
+}
+.appoint{
+    background-image: url("../img/backappoint.jpg");
+    padding-left: 30%;
+    text-align: center;
+    background-size: 100%;
 }
 
 @media (max-width: 570px) {

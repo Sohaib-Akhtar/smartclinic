@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Sign-up</title>
+<title>Make an Appointment</title>
 <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!--<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
@@ -102,7 +102,9 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
     }
 }
 
-
+function Success{
+    document.getElementById("appointment").innerHTML = "<h1>You will receive an email when your appointment is confirmed by the doctor. </h1><h2>Be sure to check your spam folders. </h2>"
+}
 </script>
 
 
@@ -119,43 +121,32 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
             <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger active" href="form.html">Sign-Up</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="loginForm.html">Login</a>
-          </li>
         </ul>
       </div>
     </div>
   </nav>
-<section id="sign-up">
+<section id="appointment" class="appoint text-white">
 <div class="container">
     <div class="row">
     <div class="col-md-6">
     <form action="" method="post" id="fileForm" role="form">
-    <fieldset><legend class="text-center">Valid information is required to Sign-Up. <span class="req"><small> required *</small></span></legend>
+    <!--<fieldset><legend class="text-center">Valid information is required to Sign-Up. <span class="req"><small> required *</small></span></legend>-->
       <br>
       <br>
       <span class="req"><small> required *</small></span>
       <br>
       
     <div class="form-group">
-    <label for="phonenumber"><span class="req">* </span> Phone Number: </label>
-    <input required type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="not used for marketing"/> 
+    <label for="phonenumber"><span class="req">* </span> Appointment Reason: </label>
+    <input required type="text" name="phonenumber" id="phone" class="form-control phone" maxlength="28" onkeyup="validatephone(this);" placeholder="must be valid"/> 
     </div>
      
     <div class="form-group"> 
-    <label for="firstname"><span class="req">* </span> First name: </label>
+    <label for="firstname"><span class="req">* </span> Doctor's Name </label>
     <input class="form-control" type="text" name="firstname" id = "txt" onkeyup = "Validate(this)" required /> 
     <div id="errFirst"></div>    
     </div>
      
-    <div class="form-group">
-    <label for="lastname"><span class="req">* </span> Last name: </label> 
-    <input class="form-control" type="text" name="lastname" id = "txt" onkeyup = "Validate(this)" placeholder="hyphen or single quote OK" required />  
-    <div id="errLast"></div>
-    </div>
      
     <div class="form-group">
     <label for="email"><span class="req">* </span> Email Address: </label> 
@@ -164,19 +155,17 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
     </div>
      
     <div class="form-group">
-    <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label> 
-    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />  
+    <label for="lastname"><span class="req">* </span> Date: </label> 
+    <input class="form-control" type="text" name="lastname" id = "txt" onkeyup = "Validate(this)" placeholder="dd/mm/yy" required />  
+    <div id="errLast"></div>
+    </div>    
+        
+    <div class="form-group">
+    <label for="username"><span class="req">* </span> Time </label> 
+    <input class="form-control" type="text" name="username" id = "txt" onkeyup = "Validate(this)" placeholder="hh:mm" required />  
     <div id="errLast"></div>
     </div>
      
-    <div class="form-group">
-    <label for="password"><span class="req">* </span> Password: </label>
-    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="pass1" /> </p>
-     
-    <label for="password"><span class="req">* </span> Password Confirm: </label>
-    <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16" placeholder="Enter again to validate"  id="pass2" onkeyup="checkPass(); return false;" />
-    <span id="confirmMessage" class="confirmMessage"></span>
-    </div>
      
     <div class="form-group">
      
@@ -184,15 +173,15 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
     <input type="hidden" value="<?php //echo $date_entered; ?>" name="dateregistered">
     <input type="hidden" value="0" name="activate" />
     <hr>
-     
+     <!--
     <input type="checkbox" required name="terms" onchange="this.setCustomValidity(validity.valueMissing ? 'Please indicate that you accept the Terms and Conditions' : '');" id="field_terms">   <label for="terms">I agree with the <a href="terms.php" title="You may read our terms and conditions by clicking on this link">terms and conditions</a> for Registration.</label><span class="req">* </span>
     </div>
-     
+     -->
     <div class="form-group">
-    <input class="btn btn-success" type="submit" name="submit_reg" value="Register">
+    <input class="btn btn-success" type="submit" name="submit_reg" value="Confirm!" onclick=Success()>
     </div>
-    <h5>You will receive an email to complete the registration and validation process. </h5>
-    <h5>Be sure to check your spam folders. </h5>
+    <!--<h5>You will receive an email when your appointment is confirmed by the doctor. </h5>
+    <h5>Be sure to check your spam folders. </h5>-->
      
      
     </fieldset>
