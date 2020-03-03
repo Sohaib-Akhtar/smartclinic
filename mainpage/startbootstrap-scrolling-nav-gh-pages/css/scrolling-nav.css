@@ -140,10 +140,9 @@ section {
     }
 }
 .appoint{
-    background-image: url("../img/backappoint.jpg");
-    padding-left: 30%;
+    background-color: whitesmoke;
+    padding-left: 33%;
     text-align: center;
-    background-size: 100%;
 }
 .signupBody{
     padding-left: 30%;
@@ -175,6 +174,14 @@ section {
     border: 1px solid #6648b1;
 }
 .but-sign:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+.but-appoint{
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+.but-appoint:hover{
     background-color: #563d7c;
     border: 1px solid #563d7c;
 }
