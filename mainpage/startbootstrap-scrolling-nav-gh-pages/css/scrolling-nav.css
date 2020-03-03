@@ -149,19 +149,35 @@ section {
     padding-left: 30%;
     text-align: center;
     background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
 }
 .loginBody{
     padding-left: 30%;
     text-align: center;
     background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
 }
 .sign{
     padding-left: 18%;
 }
-.but{
-    padding-left: 38%;
+.but-log{
+    margin-left: 120%;
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
 }
-
+.but-log:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+.but-sign{
+    margin-right: 5%;
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+.but-sign:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
 
 @media (max-width: 570px) {
   .carousel-caption{
