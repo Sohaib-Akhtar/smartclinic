@@ -145,6 +145,23 @@ section {
     text-align: center;
     background-size: 100%;
 }
+.signupBody{
+    padding-left: 30%;
+    text-align: center;
+    background-color: whitesmoke;
+}
+.loginBody{
+    padding-left: 30%;
+    text-align: center;
+    background-color: whitesmoke;
+}
+.sign{
+    padding-left: 18%;
+}
+.but{
+    padding-left: 38%;
+}
+
 
 @media (max-width: 570px) {
   .carousel-caption{
