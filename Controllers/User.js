@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-const User = require('../models/user');
+const User = require('../Model/User');
 
 exports.getLogin = (req, res, next) => {
   let message = req.flash('error');
@@ -31,9 +31,10 @@ exports.getSignup = (req, res, next) => {
 };
 
 exports.postLogin = (req, res, next) => {
-  const email = req.body.email;
+  const username = req.body.username;
   const password = req.body.password;
-  User.findOne({ email: email })
+  //console.log(username,' ',password);
+  User.findOne({ username: username })
     .then(user => {
       if (!user) {
         req.flash('error', 'Invalid email or password.');
@@ -43,8 +44,10 @@ exports.postLogin = (req, res, next) => {
         .compare(password, user.password)
         .then(doMatch => {
           if (doMatch) {
+            console.log("passed");
             req.session.isLoggedIn = true;
             req.session.user = user;
+            //res.locals.isAuthenticated = true;
             return req.session.save(err => {
               console.log(err);
               res.redirect('/');
@@ -63,8 +66,13 @@ exports.postLogin = (req, res, next) => {
 
 exports.postSignup = (req, res, next) => {
   const email = req.body.email;
-  const password = req.body.password;
-  const confirmPassword = req.body.confirmPassword;
+  const password = req.body.password[0];
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  const username = req.body.username;
+  const phone = req.body.phonenumber;
+
+  //console.log(email,' ',password,' ',firstname,' ',lastname,' ',username,' ',phone);
   User.findOne({ email: email })
     .then(userDoc => {
       if (userDoc) {
@@ -75,9 +83,14 @@ exports.postSignup = (req, res, next) => {
       return bcrypt
         .hash(password, 12)
         .then(hashedPassword => {
+          //creating user object
           const user = new User({
             email: email,
             password: hashedPassword,
+            firstName: firstname,
+            lastName: lastname,
+            username: username,
+            phone: phone,
             Appointments: { items: [] }
           });
           return user.save();
