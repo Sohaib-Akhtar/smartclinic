@@ -5,3 +5,10 @@ exports.getIndex = (req, res, next) => {
         path: '/'
     });
   };
+
+exports.getAppointment = (req, res, next) => {
+    res.render('clinic/appointment',{
+        pageTitle: 'Appointment',
+        path: '/appointment'
+    });
+};
