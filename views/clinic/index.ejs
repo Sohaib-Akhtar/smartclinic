@@ -50,7 +50,10 @@
             </form>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Make Appointment</a>
+            <form action="/appointment" method="GET" id="fileForm" role="form">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                <input class="btn btn-success" type="submit" name="submit_reg" value="Make Appointment">
+            </form>
           </li>
           <% } %>
         </ul>
@@ -156,13 +159,13 @@
                 <p class="lead">The patients can view details of the doctor and make an appointment from home and share their experiences online. The doctors can build their own reputation and strengthen relationships between their patients and interact with other doctors as well.</p>
             </div>
         </div>
-        <% if (isAuthenticated){ %>
+        <% if (!isAuthenticated){ %>
         <div style="text-align: center;">
-            <a href="/signup" class="btn btn-outline-dark btn-lg" role="button">Make an Appointment</a>
+            <a href="/login" class="btn btn-outline-dark btn-lg" role="button">Make an Appointment</a>
         </div>
         <% } else{ %>
         <div style="text-align: center;">
-            <a href="/login" class="btn btn-outline-dark btn-lg" role="button">Make an Appointment</a>
+            <a href="/appointment" class="btn btn-outline-dark btn-lg" role="button">Make an Appointment</a>
         </div>
         <% } %>
     </div>

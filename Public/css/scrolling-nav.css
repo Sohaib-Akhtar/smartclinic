@@ -140,11 +140,52 @@ section {
     }
 }
 .appoint{
-    background-image: url("../img/backappoint.jpg");
+    background-color: whitesmoke;
+    padding-left: 33%;
+    text-align: center;
+}
+.signupBody{
     padding-left: 30%;
     text-align: center;
-    background-size: 100%;
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
 }
+.loginBody{
+    padding-left: 30%;
+    text-align: center;
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+}
+.sign{
+    padding-left: 18%;
+}
+.but-log{
+    margin-left: 120%;
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+.but-log:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+.but-sign{
+    margin-right: 5%;
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+.but-sign:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+.but-appoint{
+    background-color: #6648b1;
+    border: 1px solid #6648b1;
+}
+.but-appoint:hover{
+    background-color: #563d7c;
+    border: 1px solid #563d7c;
+}
+
 
 @media (max-width: 570px) {
   .carousel-caption{
@@ -166,27 +207,4 @@ section {
     .carousel-indicators{
         display:none;
     }
-}
-
-.scrollbar-morpheus-den::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background-color: #F5F5F5;
-    border-radius: 10px; 
-}
-    
-.scrollbar-morpheus-den::-webkit-scrollbar {
-    width: 12px;
-    background-color: #F5F5F5; 
-}
-    
-.scrollbar-morpheus-den::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
-    background-image: -webkit-gradient(linear, left bottom, left top, from(#30cfd0), to(#330867));
-    background-image: -webkit-linear-gradient(bottom, #30cfd0 0%, #330867 100%);
-    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); 
-}
-    
-.scrollbar-morpheus-den {
-    scrollbar-color: #330867 #F5F5F5;
 }

@@ -45,15 +45,15 @@ const userSchema = new Schema({
 });
 
 userSchema.methods.addToCart = function(Appointment) {
-  const cartAppointmentIndex = this.cart.items.findIndex(cp => {
+  /*const cartAppointmentIndex = this.Appointments.items.findIndex(cp => {
     return cp.AppointmentId.toString() === Appointment._id.toString();
-  });
+  });*/
 
-  const updatedCartItems = [...this.cart.items];
+  const updatedCartItems = [...this.Appointments.items];
 
   //pushing new appointment to appointments arr
   updatedCartItems.push({
-    AppointmentId: Appointment._id,
+    appointId: Appointment._id,
     status: 'Pending'
   });
   const updatedCart = {
@@ -64,7 +64,7 @@ userSchema.methods.addToCart = function(Appointment) {
 };
 
 userSchema.methods.removeFromCart = function(AppointmentId) {
-  const updatedCartItems = this.cart.items.filter(item => {
+  const updatedCartItems = this.Appointments.items.filter(item => {
     return item.AppointmentId.toString() !== AppointmentId.toString();
   });
   this.Appointments.items = updatedCartItems;

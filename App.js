@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 
 //sconst errorController = require('./controllers/error');
 const User = require('./Model/User');
-
+const Appointment = require('./Model/Appointment')
 const MONGODB_URI =
   'mongodb+srv://Sohaib:hajwalh1@cluster-ltaee.mongodb.net/test?retryWrites=true';
 

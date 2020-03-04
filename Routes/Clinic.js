@@ -9,5 +9,6 @@ const router = express.Router();
 
 router.get('/', shopController.getIndex);
 router.get('/appointment',isAuth, shopController.getAppointment);
+router.post('/appointment', shopController.postAppointment);
 
 module.exports = router;
