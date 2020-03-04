@@ -186,6 +186,7 @@ section {
     border: 1px solid #563d7c;
 }
 
+
 @media (max-width: 570px) {
   .carousel-caption{
     top: 40%;
