@@ -160,7 +160,8 @@ section {
     padding-left: 18%;
 }
 .but-log{
-    margin-left: 120%;
+    margin: auto;
+    margin-left: 80%;
     background-color: #6648b1;
     border: 1px solid #6648b1;
 }
@@ -186,7 +187,30 @@ section {
     border: 1px solid #563d7c;
 }
 
+/*doctors cards*/
+.doctorsBody{
+    background-color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 70%;
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
+  }
+  
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
 
+  /*rating*/
+  .checked {
+    color: orange;
+  }
+
+/*Media Query*/
 @media (max-width: 570px) {
   .carousel-caption{
     top: 40%;
