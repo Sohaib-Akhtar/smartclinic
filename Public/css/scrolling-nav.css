@@ -166,7 +166,7 @@ section {
     border: 1px solid #6648b1;
 }
 .bt:hover{
-    background-color: #3cb2b6;
+    color: white;
 }
 .but-log:hover{
     background-color: #563d7c;

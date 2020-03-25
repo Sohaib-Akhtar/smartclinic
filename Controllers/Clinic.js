@@ -15,6 +15,13 @@ exports.getAppointment = (req, res, next) => {
     });
 };
 
+exports.getMembership = (req, res, next) => {
+    res.render('clinic/membership',{
+        pageTitle: 'Membership',
+        path: '/membership'
+    });
+};
+
 exports.postAppointment = (req, res, next) => {
     const desc = req.body.description;
     const docid = 1;
