@@ -136,6 +136,7 @@ exports.postSignup = (req, res, next) => {
   const lastname = req.body.lastname;
   const username = req.body.username;
   const phone = req.body.phonenumber;
+  const mem = false;
   //console.log(email,' ',password,' ',firstname,' ',lastname,' ',username,' ',phone);
   User.findOne({ email: email })
     .then(userDoc => {
@@ -155,6 +156,7 @@ exports.postSignup = (req, res, next) => {
             lastName: lastname,
             username: username,
             phone: phone,
+            isMember: mem,
             Appointments: { items: [] }
           });
           return user.save();
