@@ -121,7 +121,10 @@
                             <% } %>
                           </div>
                           <div class="card-button">
-                              <a href="appointment.html" class="btn btn-primary btn-lg" role="button">Make Appointment</a>
+                              <a href="appointment/<%= doctor._id %>" class="btn btn-primary btn-lg" role="button">
+                                <input type="hidden" name="DocID" value="<%= doctor._id %>">
+                                Make Appointment
+                              </a>
                               <a href="login.html" class="btn btn-primary btn-lg" role="button">Contact</a>
                           </div>
                       </div>

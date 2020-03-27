@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <!-- Bootstrap core CSS -->
-<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/scrolling-nav.css" rel="stylesheet">
+<link href="../css/scrolling-nav.css" rel="stylesheet">
 </head>
 
 <script>
@@ -125,17 +125,14 @@ function Success(){
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/logo.png"></a>
+      <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="../img/logo.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/">Home</a>
-          </li>
-            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger active" href="/appointment">Make Appointment</a>
+            <a class="nav-link js-scroll-trigger" href="/"><i class="fas fa-home"></i> Home</a>
           </li>
         </ul>
       </div>
@@ -145,7 +142,7 @@ function Success(){
 <div class="container">
     <div class="row">
     <div class="col-md-6">
-    <form action="/appointment" method="POST" id="fileForm" role="form">
+    <form action="/appointment/<%= doctor._id %>" method="POST" id="fileForm" role="form">
     <!--<fieldset><legend class="text-center">Valid information is required to Sign-Up. <span class="req"><small> required *</small></span></legend>-->
       <span class="req"><small> required *</small></span>
       
@@ -155,17 +152,6 @@ function Success(){
         <textarea class="form-control appointment" name="description" rows="3" id="appointment"></textarea>
     </div>
     
-     <div class="form-group">
-        <label for="docId">Choose a Doctor:</label>
-        <select class="form-control doctors" name="docId" id="docId">
-            <option active></option>
-            <option value="1">Dr. Zuka</option>
-            <option value="2">Dr. Hamza</option>
-            <option value="3">Dr. Bhai</option>
-        </select>
-    </div>
-     
-     
     <div class="form-group">
     <label for="AppointmentDate"><span class="req">* </span> Date: </label> 
     <input class="form-control" type="date" name="date" id = "txt" onkeyup = "date_validate(this)" placeholder="dd/mm/yyyy" required />  

@@ -11,10 +11,17 @@ exports.getIndex = (req, res, next) => {
   };
 
 exports.getAppointment = (req, res, next) => {
-    res.render('clinic/appointment',{
+    const docID = req.params.DocID;
+    Doctor
+    .findById(docID)
+    .then(doctor => {
+      res.render('clinic/appointment',{
+        doctor: doctor,
         pageTitle: 'Appointment',
         path: '/appointment'
     });
+    })
+    .catch(err => console.log(err));
 };
 
 exports.getMembership = (req, res, next) => {
@@ -26,7 +33,7 @@ exports.getMembership = (req, res, next) => {
 
 exports.postAppointment = (req, res, next) => {
     const desc = req.body.description;
-    const docid = 1;
+    const docid = req.params.DocID;;
     const date = req.body.date;
     const time = String(req.body.time);
    // console.log(desc,' ',docid,' ',date,' ',time);

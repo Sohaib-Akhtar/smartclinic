@@ -9,9 +9,9 @@ const router = express.Router();
 
 router.get('/', shopController.getIndex);
 
-router.get('/appointment',isAuth, shopController.getAppointment);
+router.get('/appointment/:DocID',isAuth, shopController.getAppointment);
 
-router.post('/appointment', shopController.postAppointment);
+router.post('/appointment/:DocID', shopController.postAppointment);
 
 router.get('/membership', shopController.getMembership);
 

@@ -16,8 +16,8 @@ const productSchema = new Schema({
     required: true
   },
   docId: {
-    type: Number, //Schema.Types.ObjectId,
-    //ref: 'User',
+    type: Schema.Types.ObjectId,
+    ref: 'Doctor',
     required: true
   }
 });
