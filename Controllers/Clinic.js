@@ -1,4 +1,6 @@
 const Appointment = require('../Model/Appointment');
+const Doctor = require('../Model/Doctor');
+
 
 exports.getIndex = (req, res, next) => {
     
@@ -40,3 +42,30 @@ exports.postAppointment = (req, res, next) => {
     res.redirect('/');
 };
 
+exports.getDoctors = (req, res, next) => {
+    Doctor.find()
+      .then(doctors => {
+        res.render('clinic/doctors', {
+          docs: doctors,
+          pageTitle: 'Doctors',
+          path: '/doctors'
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+  
+  exports.getDoctor = (req, res, next) => {
+    const prodId = req.params.productId;
+    Product.findById(prodId)
+      .then(product => {
+        res.render('shop/product-detail', {
+          product: product,
+          pageTitle: product.title,
+          path: '/products'
+        });
+      })
+      .catch(err => console.log(err));
+  };
+  

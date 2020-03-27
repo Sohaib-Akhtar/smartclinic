@@ -114,13 +114,13 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
             <a class="nav-link js-scroll-trigger" href="/"><i class="fas fa-home"></i> Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="/signupdoc"><i class="fa fa-user-md"></i> Doc Sign-Up</a>
+            <a class="nav-link js-scroll-trigger  active" href="/signupdoc"><i class="fa fa-user-md"></i> Doc Sign-Up</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="/signup"><i class="far fa-id-badge"></i> Sign-Up</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger active" href="/login"><i class='fas fa-sign-in-alt'></i> Login</a>
+            <a class="nav-link js-scroll-trigger" href="/login"><i class='fas fa-sign-in-alt'></i> Login</a>
           </li>
         </ul>
       </div>
@@ -130,7 +130,7 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
 <div class="container">
     <div class="row">
     <div class="col-md-6">
-    <form action="/login" method="POST" id="fileForm" role="form">
+    <form action="/logindoc" method="POST" id="fileForm" role="form">
     <fieldset><legend class="text-center">Valid information is required to Login. <span class="req"><small> required *</small></span></legend>
       <br>
       <br>
@@ -153,10 +153,6 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
     <hr>
     </div>
     <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
-    <div style="text-align: center;">
-      <a href="/logindoc" class="btn btn-outline-dark" role="button">If doctor, click here!</i></a>
-    </div>
-    <br>
     <div class="form-group">
     <input class="btn btn-success" type="submit" name="submit_reg" value="Login">
     </div>

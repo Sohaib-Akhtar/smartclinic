@@ -42,24 +42,26 @@
       <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo.png"></a>
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                <a class="nav-link js-scroll-trigger" href="#about"><i class='far fa-question-circle'></i> About</a>
             </li>
             <li>
-                <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+                <a class="nav-link js-scroll-trigger" href="#services"><i class='fas fa-stethoscope'></i> Services</a>
             </li>
             <li>
-                <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+                <a class="nav-link js-scroll-trigger" href="#team"><i class='fas fa-users'></i> Team</a>
             </li>
             <li>
-                <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                <a class="nav-link js-scroll-trigger" href="#contact"><i class='far fa-comments'></i> Contact</a>
             </li>
             <li>
-                <a class="nav-link js-scroll-trigger" href="">Doctors</a>
+                <a class="nav-link js-scroll-trigger" href="/doctors"><i class="fa fa-user-md"></i> Doctors</a>
             </li>
             <% if (isAuthenticated){ %>
+                <% if (!isDoc){ %>
                 <li>
-                    <a class="nav-link js-scroll-trigger" href="/membership">Membership</a>
+                    <a class="nav-link js-scroll-trigger" href="/membership"><i class='far fa-gem'></i> Membership</a>
                 </li>
+                <% } %>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <form action="/logout" method="POST" id="fileForm" role="form">
@@ -90,9 +92,9 @@
                         <h3>A Better Connection is a better cure</h3>
                     </div>
                     <% if (!isAuthenticated) { %>
-                    <a href="/signup" class="btn btn-outline-light btn-lg wow bounceIn" data-wow-delay="0.2s" role="button"><span class="glyphicon glyphicon-user"></span> Sign-Up</a>
+                    <a href="/signup" class="btn btn-outline-light btn-lg wow bounceIn" data-wow-delay="0.2s" role="button"><i class="far fa-id-badge"></i> Sign-Up</a>
                     <!--<button type="button" class="btn btn-outline-light btn-lg">Sign Up</button>-->
-                    <a href="/login" class="btn btn-primary btn-lg wow bounceIn" data-wow-delay="0.2s" role="button"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                    <a href="/login" class="btn btn-primary btn-lg wow bounceIn" data-wow-delay="0.2s" role="button"><i class='fas fa-sign-in-alt'></i> Login</a>
                     <!--<button type="button" class="btn btn-primary btn-lg">Login</button>-->
                     <% } %>
                 </div>
@@ -107,9 +109,9 @@
                         <h3>A Better Connection is a better cure</h3>
                     </div>
                     <% if (!isAuthenticated) { %>
-                    <a href="/signup" class="btn btn-outline-light btn-lg wow bounceIn" role="button">Sign-Up</a>
+                    <a href="/signup" class="btn btn-outline-light btn-lg wow bounceIn" role="button"><i class="far fa-id-badge"></i> Sign-Up</a>
                     <!--<button type="button" class="btn btn-outline-light btn-lg">Sign Up</button>-->
-                    <a href="/login" class="btn btn-primary btn-lg wow bounceIn" role="button">Login</a>
+                    <a href="/login" class="btn btn-primary btn-lg wow bounceIn" role="button"><i class='fas fa-sign-in-alt'></i> Login</a>
                     <!--<button type="button" class="btn btn-primary btn-lg">Login</button>-->
                     <% } %>
                 </div>
@@ -124,9 +126,9 @@
                         <h3>A Better Connection is a better cure</h3>
                     </div>
                     <% if (!isAuthenticated) { %>
-                    <a href="/signup" class="btn btn-outline-light btn-lg wow bounceIn" role="button">Sign-Up</a>
+                    <a href="/signup" class="btn btn-outline-light btn-lg wow bounceIn" role="button"><i class="far fa-id-badge"></i> Sign-Up</a>
                     <!--<button type="button" class="btn btn-outline-light btn-lg">Sign Up</button>-->
-                    <a href="/login" class="btn btn-primary btn-lg wow bounceIn" role="button">Login</a>
+                    <a href="/login" class="btn btn-primary btn-lg wow bounceIn" role="button"><i class='fas fa-sign-in-alt'></i> Login</a>
                     <!--<button type="button" class="btn btn-primary btn-lg">Login</button>-->
                     <% } %>
                 </div>
@@ -203,15 +205,17 @@
                 <div class="wow fadeInUp text-center" data-wow-delay="0.3s">
                     <p class="lead">The patients can view details of the doctor and make an appointment from home and share their experiences online. The doctors can build their own reputation and strengthen relationships between their patients and interact with other doctors as well.</p>
                 </div>
-                <% if (!isAuthenticated){ %>
-                    <div style="text-align: center;">
-                        <a href="/login" class="btn btn-outline-dark btn-lg wow bounceInDown" role="button">Make an Appointment <i class="fa fa-angle-right"></i></a>
-                    </div>
-                <% } else{ %>
-                    <div style="text-align: center;">
-                        <a href="/appointment" class="btn btn-outline-dark btn-lg wow bounceInDown" role="button">Make an Appointment <i class="fa fa-angle-right"></i></a>
-                    </div>
-                <% } %>        
+                <% if (!isDoc){ %>
+                    <% if (!isAuthenticated){ %>
+                        <div style="text-align: center;">
+                            <a href="/login" class="btn btn-outline-dark btn-lg wow bounceInDown" role="button">Make an Appointment <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    <% } else{ %>
+                        <div style="text-align: center;">
+                            <a href="/appointment" class="btn btn-outline-dark btn-lg wow bounceInDown" role="button">Make an Appointment <i class="fa fa-angle-right"></i></a>
+                        </div>
+                    <% } %>
+                <% } %>         
             </div>
         </div>
     </div>

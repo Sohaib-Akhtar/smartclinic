@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Doctors Information</title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+    .filterDiv {
+      /*float: left;
+      background-color: #2196F3;
+      color: #ffffff;
+      width: 100px;
+      line-height: 100px;
+      text-align: center;
+      margin: 2px;*/
+      
+      display: none;
+    }
+    
+    .show {
+      display: block;
+    }
+    
+    .container {
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    .tl{
+      list-style-type:none;
+      display:flex;
+      justify-content: center;
+    }
+    .bt{
+      display: list-item;
+      padding: 5px 4px;
+      margin: 0;
+    }
+    .btj{
+      padding: 0.5rem;
+    }
+    </style>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<body id="page-top" class="doctorsBody">
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container-fluid">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger active" href="/doctors"><i class="fa fa-user-md"></i> Doctors</a>
+                    </li>
+                    <% if (!isDoc){ %>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/membership"><i class='far fa-gem'></i> Membership</a>
+                    </li>
+                    <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Doctors -->
+    <section id="doctors">
+        <div class="container-fluid padding">
+            <div class="row team text-center">
+                <div class="col-12">
+                    <h1 class="display-4"><i class="fa fa-user-md"></i> Doctors Information</h1>
+                </div>
+                <hr>
+            </div>
+        </div>
+    <!-- Cards -->
+    
+      <ul class="nav nav-tabs tl">
+        <li class="bt"><button type="button" class="btj btn btn-outline-dark" onclick="filterSelection('all')"> Show All</button></li>
+        <li class="bt"><button type="button" class="btj btn btn-outline-dark" onclick="filterSelection('Dermatologist')"> Dermatologist</button></li>
+        <li class="bt"><button type="button" class="btj btn btn-outline-dark" onclick="filterSelection('ENT')"> ENT</button></li>
+        <li class="bt"><button type="button" class="btj btn btn-outline-dark" onclick="filterSelection('Gynaecologist')"> Gynaecologist</button></li>
+        <li class="bt"><button type="button" class="btj btn btn-outline-dark" onclick="filterSelection('Child')"> Child Specialist</button></li>
+      </ul>
+      <br>
+      <div id="myDIV" class ="Dcontainer">
+        <% for (let doctor of docs) { %>
+          <div class="filterDiv <%= doctor.specialization %> card mb-3">
+              <div class="row padding">
+                  <div class="col-md-4" >
+                      <img src="<%= doctor.img %>" class="card-img" style="height: 100%;width: 100%;padding-top: 10%;padding-left: 10%;" alt="Sins">
+                  </div>
+                  <div class="col-md-8">
+                      <div class="card-body">
+                          <h3 class="card-title"><%= doctor.firstName %> <%= doctor.lastName %></h3>
+                          <p class="title"><%= doctor.specialization %></p>
+                          <p>Harvard University</p>
+                          <p>"<%= doctor.personalStatement %>"</p> 
+                          <div class="star-rating" data-rating="1">
+                            <% var starsleft = 5-doctor.stars; %>
+                            <% for (var i=1; i <= doctor.stars; i++){ %>
+                              <span class="fa fa-star checked"></span>
+                            <% } %>
+                            <% for (var i=1; i <= starsleft; i++){ %>
+                              <span class="fa fa-star"></span>
+                            <% } %>
+                          </div>
+                          <div class="card-button">
+                              <a href="appointment.html" class="btn btn-primary btn-lg" role="button">Make Appointment</a>
+                              <a href="login.html" class="btn btn-primary btn-lg" role="button">Contact</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        <% } %>
+    </div>
+    </section> 
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myDIV *").filter(function() 
+            {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            }
+            );
+            $("#gyno *").filter(function()
+            {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            }
+            );
+            
+          });
+        });
+
+
+        function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("filterDiv");
+        if (c == "all") c = "";
+        for (i = 0; i < x.length; i++) {
+        w3RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+
+ </script>
+</body>
