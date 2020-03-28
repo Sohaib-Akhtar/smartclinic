@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Doctors Information</title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/scrolling-nav.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+<style>
+    .show {
+      display: block;
+    }
+    
+    .container {
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    
+    /* Style the buttons */
+    </style>
+<body id="page-top" class="doctorsBody">
+
+  <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo.png"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/doctors"><i class="fa fa-user-md"></i> Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger active" href="/userappointments"><i class="far fa-calendar"></i> Appointments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/membership"><i class='far fa-gem'></i> Membership</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+  <!-- Doctors -->
+    <section id="doctors">
+        <div class="container-fluid padding">
+            <div class="row team text-center">
+                <div class="col-12">
+                    <h1 class="display-4">Appointments Information</h1>
+                </div>
+                <hr>
+            </div>
+        </div>
+    <!-- Cards -->
+      <div id="myDIV" class ="Dcontainer">
+        <%
+        for (let appointment of appointments){ 
+        %>
+        <div class="gyno card mb-3">
+            <div class="row padding">
+                <div class="col-md-12">
+                    <div class="card-body">
+                        <h3 class="card-title">Appointment Under Dr.<!-- docs[count].firstName docs[count].lastName--></h3>
+                        <p class="title"><!--docs[count].Specialization--></p>
+                        <hr>
+                        <p><%= appointment.description %></p>
+                        <p><b>Due on:</b> <%= appointment.time %> <%= appointment.date %></p>
+                        <p><b>Status:</b> Pending</p>
+                        <div style="text-align: center;">
+                          <a href="#" class="btn btn-outline-dark" role="button">Cancel Maybe?</i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+    </div>
+    </section> 
+</body>

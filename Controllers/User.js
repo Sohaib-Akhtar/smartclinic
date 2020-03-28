@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const User = require('../Model/User');
 const Image = require('../Model/Image');
 const Doctor = require('../Model/Doctor');
+const Appointment = require('../Model/Appointment');
 
 
 exports.getLogin = (req, res, next) => {
@@ -30,6 +31,26 @@ exports.getLoginDoc = (req, res, next) => {
     path: '/logindoc',
     pageTitle: 'Login Doc',
     errorMessage: message
+  });
+};
+
+exports.getAppointments = (req, res, next) => {
+  const Appointments = req.session.user.Appointments;
+  for (var i=0; i<3; ++i){
+    Appointment
+    .findById(Appointments.items[i].appointId)
+    .then(doc => {
+      docs.push(doc);
+    });
+  }
+  const docs = [];
+  console.log(docs);
+
+  res.render('auth/appointments', {
+    appointments: docs,
+    path: '/userappointments',
+    //docs: docs,
+    pageTitle: 'User Appointments'
   });
 };
 
