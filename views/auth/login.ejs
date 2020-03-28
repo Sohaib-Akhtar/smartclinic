@@ -131,20 +131,20 @@ var regAdd = /^(?=.*\d)[a-zA-Z\s\d\/]+$/;
     <div class="row">
     <div class="col-md-6">
     <form action="/login" method="POST" id="fileForm" role="form">
-    <fieldset><legend class="text-center">Valid information is required to Login. <span class="req"><small> required *</small></span></legend>
+    <!--<fieldset><legend class="text-center">Valid information is required to Login. <span class="req"><small> required *</small></span></legend>
       <br>
       <br>
       <span class="req"><small> required *</small></span>
       <br>
-
+    -->
     <div class="form-group">
-    <label for="username"><span class="req">* </span> User name:  <small>This will be your login user name</small> </label> 
-    <input class="form-control" type="text" name="username" id = "username" onkeyup = "Validate(this)" placeholder="minimum 6 letters" required />  
+    <label for="username"><span class="req"> </span> User name: </label> 
+    <input class="form-control" type="text" name="username" id = "username" onkeyup = "Validate(this)" required />  
     <div id="errLast"></div>
     </div>
      
     <div class="form-group">
-    <label for="password"><span class="req">* </span> Password: </label>
+    <label for="password"><span class="req"> </span> Password: </label>
     <input required name="password" type="password" class="form-control inputpass" minlength="4" maxlength="16"  id="password" /> </p>
      
     <div class="form-group">
