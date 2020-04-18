@@ -16,6 +16,9 @@
   <!-- Custom styles for this template -->
   <link href="css/scrolling-nav.css" rel="stylesheet">
     
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- icons -->
     <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
 
@@ -26,95 +29,142 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo.png"></a>
+        <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/logo.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link js-scroll-trigger" href="index.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-            <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="doctorsinfo.html">Doctors</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger active" href="dashboard.html">Profile</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-  
-<!-- Image Slider -->
-    <!--<div id="slides" class="carousel slide" data-ride="carousel">-->
-        <!--<ul class="carousel-indicators">
-            <li data-target="#slides" data-slide-to="0" class="active"></li>
-        </ul>-->
-        <!--<div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="img/background2.jpg">
-                <div class="carousel-caption">
-                    <h1 class="display-2">Smart Clinic</h1>
-                    <h3>A Better Connection is a better cure</h3>-->
-                    <!--<a href="signup.html" class="btn btn-outline-light btn-lg" role="button">Sign-Up</a>-->
-                    <!--<button type="button" class="btn btn-outline-light btn-lg">Sign Up</button>
-                    <a href="login.html" class="btn btn-primary btn-lg" role="button">Login</a>-->
-                    <!--<button type="button" class="btn btn-primary btn-lg">Login</button>
+
+    <!-- Profile -->
+  <section id="profile" class="bg-light">
+    <article class="container-fluid mt-5 mb-5" style="margin-left:20%;padding: auto;">
+    
+        <div class="row">
+            <div class="col-16 col-sm-10 col-md-8 col-lg-8 col-xl-4 mb-7">
+                <div class="card kl-card kl-xl kl-shine kl-show">
+                    
+                    <div class="kl-card-block kl-xl bg-primary kl-shadow-b kl-overlay kl-slide-in kl-show">
+                        <!--
+                        <div class="kl-background">
+                            <img src="http://www.lorempixel.com/150/150/nature">
+                        </div>
+                        -->
+                        <div class="kl-card-overlay kl-card-overlay-split-q kl-dark kl-inverse">
+                            <div class="kl-card-overlay-item">
+                                
+                            </div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <!-- <div class="kl-card-overlay-item">
+                                <div class="kl-figure-block">
+                                    <span class="kl-figure kl-txt-shadow">26k</span>
+                                    <span class="kl-title">Followers</span>
+                                </div>
+                            </div>
+                            <div class="kl-card-overlay-item">
+                                <div class="kl-figure-block">
+                                    <span class="kl-figure">109</span>
+                                    <span class="kl-title">Following</span>
+                                </div>
+                            </div> -->
+                            <div class="kl-card-item kl-show">
+                                <div class="kl-figure-block">
+                                    <h4 class="card-title">Name</h4>
+                                    <p class="card-text">Education: <br></p>
+                                    <p class="card-text">Specialization: <br></p>
+                                    <p class="card-text">Contact: <br></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="kl-card-avatar kl-xl kl-pm"><img class="kl-b-danger kl-b-circle kl-b-5 kl-slow kl-shadow-br kl-reveal kl-shine" src="img/zuko.JPG"></a> 
+                        
+                    </div>
+                    
+                    <!-- <div class="card-block">
+                        <h4 class="card-title">Name</h4>
+                        <p class="card-text">Education: <br></p>
+                        <p class="card-text">Specialization: <br></p>
+                        <p class="card-text">Contact: <br></p>
+                        
+                        <div class="kl-card-social text-center">
+                            <hr class="hw">
+                            <a href="#"><img class="kl-b-2 kl-shine kl-spin" src="data:image/png;base64,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"></a>
+                            <a href="#"><img class="kl-b-2 kl-shine kl-spin" src="data:image/png;base64,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"></a>
+                            <a href="#"><img class="kl-b-2 kl-shine kl-spin" src="data:image/png;base64,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"></a>
+                        </div> 
+                        
+                        <div class="kl-card-item kl-ptr kl-show mr-1 mt-1"><span class="badge badge-success">Online</span></div>
+                    </div> -->
+    
                 </div>
             </div>
-        </div>
-    </div>-->
-    
-<!-- About -->
-  <!-- <section id="about">
-      <div class="container-fluid padding">
-        <div class="row about text-center">
-            <div class="col-12">
-                <h1 class="display-4">About Us</h1>
-            </div>
-            <hr>
-            <div class="col-12">
-                <p class="lead">Smart Clinic System is a web based service which enables the patients and doctors to connect before meeting in reality :</p>
-            </div>
-        </div>
-          
-    </div>
-      
-    <div class="container-fluid padding">
-        <div class="row about text-center padding">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fas fa-address-card"></i>
-                <h3>Connect</h3>
-                <p>Patients can view details of the doctor and make an appointment from home and share their experiences online</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fas fa-praying-hands"></i>
-                <h3>Build Relations</h3>
-                <p>Doctors can build their own reputation and strengthen relationships between their patients and interact with other doctors as well</p>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <i class="fas fa-heart"></i>
-                <h3>Membership</h3>
-                <p>Provides a membership based system to all its users.</p>
-            </div>
+            
+            <div class="col-1"></div>
+            
+            <div class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 mb-5">
+                
+                <div class="card kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                    <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                        <div class="kl-card-overlay kl-card-overlay-split-h-3 kl-dark kl-inverse kl-left-in">
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                        </div>
+                        <div class="kl-card-item kl-pm kl-show">
+                            <div class="kl-figure-block">
+                                <span class="kl-figure" style="color:white;font-size: 34px;">4</span>
+                                <!-- <span class="kl-title" style="color:white;">Successful Visits</span> -->
+                            </div>
+                        </div>
+                        <p class="kl-card-avatar kl-pm kl-slow" style="color:white;">Successful Visits</p> 
+                        <div class="kl-background" style="background-color: purple;">
+                            <!-- <img src="img/background3.jpg"> -->
+                        </div>
+                    </div>
+                </div> <!-- card end -->
+
+                <div class="card kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                    <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                        <div class="kl-card-overlay kl-card-overlay-split-h-3 kl-dark kl-inverse kl-left-in">
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                        </div>
+                        <div class="kl-card-item kl-pm kl-show">
+                            <div class="kl-figure-block">
+                                <span class="kl-figure" style="color:white;font-size: 34px;">6</span>
+                                <!-- <span class="kl-title" style="color:white;">Successful Visits</span> -->
+                            </div>
+                        </div>
+                        <p class="kl-card-avatar kl-pm kl-slow" style="color:white;">Total Appointments</p> 
+                        <div class="kl-background" style="background-color: purple;">
+                            <!-- <img src="img/background3.jpg"> -->
+                        </div>
+                    </div>
+                </div> <!-- card end -->
+                
+            </div><!-- column end -->
+            
+            
+            
         </div>
         
-    </div>
-  </section> -->
-
-    <!-- Services -->
-  <section id="services" class="bg-light">
-      <!--<div class="container-fluid padding">-->
-        <div class="row services text-center">
-            <!-- <div class="col-12">
-                <h1 class="display-4">Services we offer</h1>
-            </div> -->
-            <hr>
-            <div class="col-md-4">
+    </article>
+        <!-- <div class="row services text-center">
+            <div class="col-md-4" style="margin:auto;">
                 <div class="profileCard">
                     <img class="card-img-top" src="img/zuko.JPG">
                     <div class="card-body">
@@ -123,76 +173,106 @@
                         <p class="card-text">Education: <br></p>
                         <p class="card-text">Specialization: <br></p>
                         <p class="card-text">Contact: <br></p>
-                        <a href="#" class="btn btn-outline-secondary">See Profile</a>
                     </div>
                 </div>
             </div>
             
         </div>
-      </div>
-  </section>
-    
-<!-- team -->
-    <section id="team">
-    <div class="container-fluid padding">
-        <div class="row team text-center">
-            <div class="col-12">
-                <h1 class="display-4">Our Team</h1>
-            </div>
-            <hr>
-        </div>
-    </div>
-    <!-- Cards -->
-    <div class="container-fluid padding">
-        <div class="row padding">
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="img/zuko.JPG">
-                    <div class="card-body">
-                        <h4 class="card-title">Dr. Zuko</h4>
-                        <p class="card-text">Dr. Zuko is the best doctor in the world and saved so many lives.</p>
-                        <a href="#" class="btn btn-outline-secondary">See Profile</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="img/hamza.png">
-                    <div class="card-body">
-                        <h4 class="card-title">Dr. Hamza</h4>
-                        <p class="card-text">Dr. Hamza help depressed people.</p>
-                        <a href="#" class="btn btn-outline-secondary">See Profile</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top" src="img/bhai.png">
-                    <div class="card-body">
-                        <h4 class="card-title">Dr. Bhai</h4>
-                        <p class="card-text">Dr. Bhai is expert in killing people.</p>
-                        <a href="#" class="btn btn-outline-secondary">See Profile</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      </div> -->
     </section>
-    
-<!-- Contact -->
-  <section id="contact" class="bg-light">
-      <div class="container-fluid padding">
-        <div class="row contact text-center">
-            <div class="col-12">
-                <h1 class="display-4">Contact us</h1>
+    <!-- Numbers -->
+  <!-- <section id="Numbers" >
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Number of Appointments</h5>
+              <p class="card-text">4</p>
             </div>
-            <hr>
-            <div class="col-12">
-                <p class="lead">If you have any questions, please feel free to contact us at smartclinicfeedback@gmail.com.</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Number of Successful visits</h5>
+              <p class="card-text">6</p>
             </div>
+          </div>
         </div>
       </div>
-  </section>
+  </section> -->
+<!-- Appointments -->
+<section id="appointments">
+<div class="container" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">Appointments</div>
+            <div class="card-body">
+              <div class="scrollable">
+                
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="img/background4.jpg" class="card-img" alt="..." style="width:100%;height:100%;">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Patient</h5>
+                          <p class="card-text">Reason.</p>
+                          <div class="card-button">
+                            <a href="#" class="btn btn-success" role="button">Accept</a>
+                            <a href="#" class="btn btn-danger" role="button">Reject</a>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="img/background3.jpg" class="card-img" alt="..." style="width:100%;height:100%;">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Patient</h5>
+                          <p class="card-text">Reason.</p>
+                          <div class="card-button">
+                            <a href="#" class="btn btn-success" role="button">Accept</a>
+                            <a href="#" class="btn btn-danger" role="button">Reject</a>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img src="img/background2.jpg" class="card-img" alt="..." style="width:100%;height:100%;">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h5 class="card-title">Patient</h5>
+                          <p class="card-text">Reason</p>
+                          <div class="card-button">
+                            <a href="#" class="btn btn-success" role="button">Accept</a>
+                            <a href="#" class="btn btn-danger" role="button">Reject</a>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="py-5 bg-dark">
