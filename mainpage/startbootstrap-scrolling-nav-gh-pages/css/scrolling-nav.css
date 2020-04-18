@@ -202,7 +202,17 @@ section {
   .card-button{
       margin-top:4%;
   }
-  
+.profileCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 120%;
+    align-self: flex-end;
+    max-height: 170;
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
+}  
+
+
   .title {
     color: grey;
     font-size: 18px;
