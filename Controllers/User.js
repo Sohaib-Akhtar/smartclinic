@@ -35,7 +35,9 @@ exports.getLoginDoc = (req, res, next) => {
 };
 
 exports.getAppointments = (req, res, next) => {
-  const Appointments = req.session.user.Appointments.items;
+
+  User.findOne({ _id: req.user._id}).then(user => {
+    const Appointments = user.Appointments.items;
   var aps = [];
   
   for (var i=0; i<Appointments.length; i++)
@@ -56,10 +58,16 @@ exports.getAppointments = (req, res, next) => {
      });
     });
   });
+  })
+  .catch(err => {
+    console.log(err)
+  });
+  
 };
 
 exports.getDashboard = (req, res, next) => {
   const Appointments = req.session.user.Appointments.items;
+  const Comments = req.session.user.comments.items;
   var aps = [];
   
   for (var i=0; i<Appointments.length; i++)
@@ -70,6 +78,7 @@ exports.getDashboard = (req, res, next) => {
   Appointment.find().where('_id').in(aps).exec((err, records) => {
     res.render('auth/dashboard', {
       appointments: records,
+      comments: Comments,
       doc: req.session.user,
       path: '/dashboard',
       len: len,
@@ -90,6 +99,12 @@ exports.getSignup = (req, res, next) => {
     pageTitle: 'Signup',
     errorMessage: message
   });
+};
+
+exports.getRemoveAppointment = (req, res, next) => {
+  const ApID = req.params.AppointID;
+  req.user.removeFromCart(ApID);
+  res.redirect('/userappointments');
 };
 
 exports.getSignupDoc = (req, res, next) => {

@@ -32,7 +32,7 @@
 
   <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="img/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -76,14 +76,16 @@
             <div class="row padding">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <h3 class="card-title">Appointment Under Dr. <%= docs[count].firstName %> <%= docs[count].lastName %></h3>
+                        <h3 class="card-title" style="background-image: linear-gradient(to right,rgb(52, 188, 230), rgb(7, 139, 172)); color:white; border-radius: 1rem; width: 20rem; margin-left: 21rem;">Appointment Under Dr. <%= docs[count].firstName %> <%= docs[count].lastName %></h3>
                         <p class="title"><%= docs[count].specialization %></p>
                         <hr>
                         <p>"<%= appointment.description %>"</p>
                         <p><b>Due on:</b> <%= appointment.time %> <%= appointment.date %></p>
                         <p><b>Status:</b> Pending</p>
                         <div style="text-align: center;">
-                          <a href="#" class="btn btn-outline-dark" role="button">Cancel Maybe?</i></a>
+                          <a href="removeappointment/<%= appointment._id %>" class="btn btn-outline-dark" role="button">
+                            <input type="hidden" name="AppointID" value="<%= appointment._id %>"> Cancel Maybe?
+                        </a>
                         </div>
                     </div>
                 </div>

@@ -26,4 +26,6 @@ router.get('/userappointments',authController.getAppointments);
 
 router.get('/dashboard',authController.getDashboard);
 
+router.get('/removeappointment/:AppointID',authController.getRemoveAppointment);
+
 module.exports = router;

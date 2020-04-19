@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const Appointment = require('../Model/Appointment');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -68,9 +68,10 @@ userSchema.methods.addToCart = function(Appointment) {
 
 userSchema.methods.removeFromCart = function(AppointmentId) {
   const updatedCartItems = this.Appointments.items.filter(item => {
-    return item.AppointmentId.toString() !== AppointmentId.toString();
+    return item.appointId.toString() !== AppointmentId.toString();
   });
   this.Appointments.items = updatedCartItems;
+  Appointment.findOneAndDelete({ _id:AppointmentId });
   return this.save();
 };
 
