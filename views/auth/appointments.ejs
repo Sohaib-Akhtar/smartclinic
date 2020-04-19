@@ -69,16 +69,17 @@
     <!-- Cards -->
       <div id="myDIV" class ="Dcontainer">
         <%
+        var count = 0;
         for (let appointment of appointments){ 
         %>
         <div class="gyno card mb-3">
             <div class="row padding">
                 <div class="col-md-12">
                     <div class="card-body">
-                        <h3 class="card-title">Appointment Under Dr.<!-- docs[count].firstName docs[count].lastName--></h3>
-                        <p class="title"><!--docs[count].Specialization--></p>
+                        <h3 class="card-title">Appointment Under Dr. <%= docs[count].firstName %> <%= docs[count].lastName %></h3>
+                        <p class="title"><%= docs[count].specialization %></p>
                         <hr>
-                        <p><%= appointment.description %></p>
+                        <p>"<%= appointment.description %>"</p>
                         <p><b>Due on:</b> <%= appointment.time %> <%= appointment.date %></p>
                         <p><b>Status:</b> Pending</p>
                         <div style="text-align: center;">
@@ -88,7 +89,8 @@
                 </div>
             </div>
         </div>
-        <% } %>
+        <% count+=1;
+            } %>
     </div>
     </section> 
 </body>

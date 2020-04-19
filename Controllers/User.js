@@ -35,22 +35,26 @@ exports.getLoginDoc = (req, res, next) => {
 };
 
 exports.getAppointments = (req, res, next) => {
-  const Appointments = req.session.user.Appointments;
-  for (var i=0; i<3; ++i){
-    Appointment
-    .findById(Appointments.items[i].appointId)
-    .then(doc => {
-      docs.push(doc);
-    });
-  }
-  const docs = [];
-  console.log(docs);
+  const Appointments = req.session.user.Appointments.items;
+  var aps = [];
+  
+  for (var i=0; i<Appointments.length; i++)
+  aps.push(Appointments[i].appointId);
 
-  res.render('auth/appointments', {
-    appointments: docs,
-    path: '/userappointments',
-    //docs: docs,
-    pageTitle: 'User Appointments'
+  Appointment.find().where('_id').in(aps).exec((err, records) => {
+    var ids = [];
+
+    for (var i=0; i<records.length; i++)
+    ids.push(records[i].docId);  
+
+    Doctor.find().where('_id').in(ids).exec((err, docs) => {
+      res.render('auth/appointments', {
+      appointments: records,
+      docs: docs,
+      path: '/userappointments',
+      pageTitle: 'User Appointments'
+     });
+    });
   });
 };
 
