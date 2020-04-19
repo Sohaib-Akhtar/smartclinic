@@ -33,11 +33,10 @@ exports.getMembership = (req, res, next) => {
 
 exports.postAppointment = (req, res, next) => {
     const desc = req.body.description;
-    const docid = req.params.DocID;;
+    const docid = req.params.DocID;
     const date = req.body.date;
     const time = String(req.body.time);
-   // console.log(desc,' ',docid,' ',date,' ',time);
-    const appointment = new Appointment({
+   const appointment = new Appointment({
         description: desc,
         date: date,
         time: time,
@@ -45,8 +44,26 @@ exports.postAppointment = (req, res, next) => {
     });
     const result=appointment.save();
     req.user.addToCart(appointment);
-    console.log(result);
+    
+    Doctor.findOne({ _id: docid }, function (err, doc){
+      doc.addToCart(appointment);
+    });
+
     res.redirect('/');
+};
+
+exports.postComment = (req, res, next) => {
+  const docid = req.params.DocID;
+  const newcomment = req.body.comment;
+
+  Doctor.findOne({ _id: docid })
+    .then(doctor => {
+      doctor.addToComments(newcomment);
+      res.redirect('/doctors');
+    })
+    .catch(err => {
+      console.log(err);
+    });
 };
 
 exports.getDoctors = (req, res, next) => {
@@ -63,7 +80,7 @@ exports.getDoctors = (req, res, next) => {
       });
   };
   
-  exports.getDoctor = (req, res, next) => {
+exports.getDoctor = (req, res, next) => {
     const prodId = req.params.productId;
     Product.findById(prodId)
       .then(product => {

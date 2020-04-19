@@ -165,9 +165,6 @@ section {
     background-color: #6648b1;
     border: 1px solid #6648b1;
 }
-.bt:hover{
-    color: white;
-}
 .but-log:hover{
     background-color: #563d7c;
     border: 1px solid #563d7c;
@@ -205,7 +202,17 @@ section {
   .card-button{
       margin-top:4%;
   }
-  
+.profileCard{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 120%;
+    align-self: flex-end;
+    max-height: 170;
+    margin: auto;
+    text-align: center;
+    background-color: whitesmoke;
+}  
+
+
   .title {
     color: grey;
     font-size: 18px;
@@ -288,6 +295,11 @@ section {
     }
   }
 
+  .scrollable{
+    overflow-y: auto;
+    max-height: 300px;
+  }
+
 /*Media Query*/
 @media (max-width: 570px) {
   .carousel-caption{
@@ -316,3 +328,301 @@ section {
 
 
 
+
+.kl-card {
+    margin-bottom: 15px;
+}
+
+.kl-card > .kl-card-block {
+    height: 3px;
+}
+.kl-card > .kl-card-block.kl-xs {
+    height: 15px;
+}
+.kl-card > .kl-card-block.kl-sm {
+    height: 50px;
+}
+.kl-card > .kl-card-block.kl-md {
+    height: 100px;
+}
+.kl-card > .kl-card-block.kl-lg {
+    height: 200px;
+}
+.kl-card > .kl-card-block.kl-xl {
+    height: 250px;
+}
+.kl-card > .kl-card-block.kl-xxl {
+    height: 300px;
+}
+.kl-card > .kl-card-block {
+    background: #fff;
+}
+.kl-card .kl-card-block, .kl-card .card-block {
+    position:relative;
+}
+
+.kl-card > .kl-card-block > .kl-card-item, .kl-card > .card-block > .kl-card-item {
+    position: absolute;
+    display:block;
+    background: none;
+    padding: 3px;
+    margin: auto auto;
+}
+
+.kl-card-block.kl-slide-out, .kl-card-block.kl-slide-in, .kl-card-block.kl-overlay { /* -- Hide overflow if we're running sliders -- */
+    overflow: hidden;
+}
+
+.kl-card-block > .kl-background {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+.kl-card-block > .kl-background > img {
+    width: 100%;
+    height: 100%;
+}
+.kl-card-block > .kl-card-item {
+    z-index: 2;
+}
+
+.kl-card-avatar {
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.kl-card-block > .kl-card-avatar {
+    z-index: 4;
+    position: absolute;
+    display:block;
+}
+
+.kl-card-avatar img {
+    width: 100px;
+}
+.kl-card-avatar.kl-xs, .kl-card-avatar.kl-xs > img {
+    width: 32px;
+}
+.kl-card-avatar.kl-sm, .kl-card-avatar.kl-sm > img {
+    width: 48px;
+}
+.kl-card-avatar.kl-md, .kl-card-avatar.kl-md > img {
+    width: 64px;
+}
+.kl-card-avatar.kl-lg, .kl-card-avatar.kl-lg > img {
+    width: 86px;
+}
+.kl-card-avatar.kl-xl, .kl-card-avatar.kl-xl > img {
+    width: 100px;
+}
+.kl-card:hover .kl-card-avatar{
+        opacity: 0%;
+}
+
+.kl-pm {
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.kl-card-item.kl-w25 {
+    width: 25%;
+}
+.kl-card-item.kl-w33 {
+    width: 33%;
+}
+.kl-card-item.kl-w50 {
+    width: 50%;
+}
+.kl-card-item.kl-w66 {
+    width: 66%;
+}
+.kl-card-item.kl-w75 {
+    width: 75%;
+}
+.kl-card-item.kl-h25 {
+    height: 25%;
+}
+.kl-card-item.kl-h33 {
+    height: 33%;
+}
+.kl-card-item.kl-h50 {
+    height: 50%;
+}
+.kl-card-item.kl-h66 {
+    height: 66%;
+}
+.kl-card-item.kl-h75 {
+    height: 75%;
+}
+
+/** -- OVERLAY STYLES -- **/
+.kl-card-overlay {
+    position: absolute;
+    background: transparent;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+}
+.kl-card-block > .kl-card-overlay {
+    z-index: 3;
+}
+
+.kl-card .card-block > .kl-card-overlay { /** -- deal with bootstrap .card-block padding -- **/
+    top: 0;
+    left: 0;
+}
+
+.kl-card.kl-overlay > .kl-card-top.kl-overlay {
+    overflow: hidden;
+}
+.kl-card.kl-overlay > .card-block.kl-overlay {
+    overflow: hidden;
+}
+
+.kl-card-overlay-item {
+    margin:0;
+    position:relative;
+    padding: 5px;
+}
+.kl-card-overlay > .kl-card-overlay-item {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.5);
+}
+.kl-card-overlay.kl-lite > .kl-card-overlay-item {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.25);
+}
+.kl-card-overlay.kl-dark > .kl-card-overlay-item {
+    background: rgb(0,0,0);
+    background: rgba(0,0,0,0.75);
+}
+
+/** -- Single Block -- **/
+.kl-card-overlay-block, .kl-card-overlay-item {transition: all 0.5s ease-in-out;}
+.kl-card-overlay-block .kl-card-overlay-item {width: 100%;height: 100%;}
+.kl-card-overlay-block.kl-top-in {top: -100%;}
+.kl-card-overlay-block.kl-inverse.kl-top-in {top: 0;}
+.kl-card-overlay-block.kl-right-in {right: -100%;}
+.kl-card-overlay-block.kl-inverse.kl-right-in {right: 0;}
+.kl-card-overlay-block.kl-bottom-in {bottom: -100%;}
+.kl-card-overlay-block.kl-inverse.kl-bottom-in {bottom: 0;}
+.kl-card-overlay-block.kl-left-in {left: -100%;}
+.kl-card-overlay-block.kl-inverse.kl-left-in {left: 0;}
+.kl-overlay:hover .kl-card-overlay-block.kl-top-in, .kl-overlay.hover .kl-card-overlay-block.kl-top-in {top: 0;}
+.kl-overlay:hover .kl-card-overlay-block.kl-inverse.kl-top-in:not(.kl-static), .kl-overlay.hover .kl-card-overlay-block.kl-inverse.kl-top-in:not(.kl-static) {top: -100%;}
+.kl-overlay:hover .kl-card-overlay-block.kl-right-in, .kl-overlay.hover .kl-card-overlay-block.kl-right-in {right: 0;}
+.kl-overlay:hover .kl-card-overlay-block.kl-inverse.kl-right-in:not(.kl-static), .kl-overlay.hover .kl-card-overlay-block.kl-inverse.kl-right-in:not(.kl-static) {right: -100%;}
+.kl-overlay:hover .kl-card-overlay-block.kl-bottom-in, .kl-overlay.hover .kl-card-overlay-block.kl-bottom-in {bottom: 0;}
+.kl-overlay:hover .kl-card-overlay-block.kl-inverse.kl-bottom-in:not(.kl-static), .kl-overlay.hover .kl-card-overlay-block.kl-inverse.kl-bottom-in:not(.kl-static) {bottom: -100%;}
+.kl-overlay:hover .kl-card-overlay-block.kl-left-in, .kl-overlay.hover .kl-card-overlay-block.kl-left-in {left: 0;}
+.kl-overlay:hover .kl-card-overlay-block.kl-inverse.kl-left-in:not(.kl-static), .kl-overlay.hover .kl-card-overlay-block.kl-inverse.kl-left-in:not(.kl-static) {left: -100%;}
+
+/** -- Horizontal Split 3 -- **/
+.kl-card-overlay-split-h-3 .kl-card-overlay-item {width: 100%;height: 33.333333%;position:absolute;}
+.kl-card-overlay-split-h-3 > .kl-card-overlay-item:nth-child(1) {top: 0;transition: all 0.3s ease-in-out;}
+.kl-card-overlay-split-h-3 > .kl-card-overlay-item:nth-child(2) {top: 33.333333%;transition: all 0.5s ease-in-out;}
+.kl-card-overlay-split-h-3 > .kl-card-overlay-item:nth-child(3) {top: 66.666666%;transition: all 0.7s ease-in-out;}
+.kl-card-overlay-split-h-3.kl-left-in > .kl-card-overlay-item {left: -100%;}
+.kl-card-overlay-split-h-3.kl-right-in > .kl-card-overlay-item{right: -100%;}
+.kl-card-overlay-split-h-3.kl-inverse.kl-left-in > .kl-card-overlay-item {left: 0;}
+.kl-card-overlay-split-h-3.kl-inverse.kl-right-in > .kl-card-overlay-item{right: 0;}
+.kl-overlay:hover .kl-card-overlay-split-h-3.kl-left-in .kl-card-overlay-item, .kl-overlay.hover .kl-card-overlay-split-h-3.kl-left-in .kl-card-overlay-item {left: 0;}
+.kl-overlay:hover .kl-card-overlay-split-h-3.kl-right-in .kl-card-overlay-item, .kl-overlay.hover .kl-card-overlay-split-h-3.kl-right-in .kl-card-overlay-item {right: 0;}
+.kl-overlay:hover .kl-card-overlay-split-h-3.kl-inverse.kl-left-in:not(.kl-static) .kl-card-overlay-item, .kl-overlay.hover .kl-card-overlay-split-h-3.kl-inverse.kl-left-in:not(.kl-static) .kl-card-overlay-item {left: -100%;}
+.kl-overlay:hover .kl-card-overlay-split-h-3.kl-inverse.kl-right-in:not(.kl-static) .kl-card-overlay-item, .kl-overlay.hover .kl-card-overlay-split-h-3.kl-inverse.kl-right-in:not(.kl-static) .kl-card-overlay-item {right: -100%;}
+
+/** -- 4 Quarter Split -- **/
+.kl-card-overlay-split-q .kl-card-overlay-item {width: 50%;height: 50%;position:absolute;}
+.kl-card-overlay-split-q > .kl-card-overlay-item:nth-child(1) {top: -50%;left: -50%;}
+.kl-card-overlay-split-q > .kl-card-overlay-item:nth-child(2) {top: -50%;right: -50%;}
+.kl-card-overlay-split-q > .kl-card-overlay-item:nth-child(3) {right: -50%;bottom: -50%;}
+.kl-card-overlay-split-q > .kl-card-overlay-item:nth-child(4) {bottom: -50%;left: -50%;}
+.kl-overlay:hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(1), .kl-overlay.hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(1) {top: 0;left: 0;}
+.kl-overlay:hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(2), .kl-overlay.hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(2) {top: 0;right: 0;}
+.kl-overlay:hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(3), .kl-overlay.hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(3) {right: 0;bottom: 0;}
+.kl-overlay:hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(4), .kl-overlay.hover .kl-card-overlay-split-q .kl-card-overlay-item:nth-child(4) {bottom: 0;left: 0;}
+.kl-card-overlay-split-q.kl-inverse > .kl-card-overlay-item:nth-child(1) {top: 0;left: 0;}
+.kl-card-overlay-split-q.kl-inverse > .kl-card-overlay-item:nth-child(2) {top: 0;right: 0;}
+.kl-card-overlay-split-q.kl-inverse > .kl-card-overlay-item:nth-child(3) {right: 0;bottom: 0;}
+.kl-card-overlay-split-q.kl-inverse > .kl-card-overlay-item:nth-child(4) {bottom: 0;left: 0;}
+.kl-overlay:hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(1), .kl-overlay.hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(1) {top: -50%;left: -50%;}
+.kl-overlay:hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(2), .kl-overlay.hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(2) {top: -50%;right: -50%;}
+.kl-overlay:hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(3), .kl-overlay.hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(3) {right: -50%;bottom: -50%;}
+.kl-overlay:hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(4), .kl-overlay.hover .kl-card-overlay-split-q.kl-inverse:not(.kl-static) .kl-card-overlay-item:nth-child(4) {bottom: -50%;left: -50%;}
+
+.kl-overlay:hover .kl-card-overlay.kl-inverse:not(.kl-static), .kl-overlay.hover .kl-card-overlay.kl-inverse:not(.kl-static) {
+    pointer-events: none;
+}
+
+/** -- FIGURE BLOCKS -- **/
+.kl-figure-block {
+    text-align:center;
+}
+.kl-figure-block > .kl-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #696969;
+    display:block;
+}
+.kl-figure-block > .kl-figure {
+    font-weight: bold;
+    font-size: 1.7em;
+    display:block;
+}
+
+.kl-card-overlay-split-q .kl-figure-block {
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+
+/** -- TRANSITION STYLES -- **/
+.kl-card, .kl-card-avatar, .kl-card-avatar img, .kl-card-top, .kl-card-social img, kl-card .kl-card-overlay, .kl-card .kl-figure-block, .kl-card .kl-card-item {
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+    -ms-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    -webkit-transition-timing-function: ease-in-out;
+    -moz-transition-timing-function: ease-in-out;
+    -o-transition-timing-function: ease-in-out;
+    -ms-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+}
+
+.kl-card *.kl-slow {
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+   transition-duration: 0.8s;
+}
+
+.kl-card *.kl-fade {
+    background: rgb(232,232,232);
+    background: -moz-linear-gradient(top,  rgba(232,232,232,1) 0%, rgba(232,232,232,1) 100%);
+    background: -webkit-linear-gradient(top,  rgba(232,232,232,1) 0%,rgba(232,232,232,1) 100%);
+    background: linear-gradient(to bottom,  rgba(232,232,232,1) 0%,rgba(232,232,232,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#e8e8e8',GradientType=0 );
+}
+
+
+/** -- Show -- **/
+.kl-card .kl-show:not(.kl-card-block) {opacity: 0;}
+.kl-card.kl-show:hover .kl-show:not(.kl-card-block), .kl-card.kl-show.hover .kl-show:not(.kl-card-block),.kl-card-block.kl-show:hover .kl-show:not(.kl-card-block), .kl-card-block.kl-show.hover .kl-show:not(.kl-card-block) {opacity: 1;}

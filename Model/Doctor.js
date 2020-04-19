@@ -44,6 +44,15 @@ const doctorSchema = new Schema({
   img:{
     type: String
   },
+  comments:{
+    items:[
+      {
+        comment:{
+          type: String
+        }
+      }
+    ]
+  },
   Appointments: {
     items: [
       {
@@ -62,9 +71,6 @@ const doctorSchema = new Schema({
 });
 
 doctorSchema.methods.addToCart = function(Appointment) {
-  /*const cartAppointmentIndex = this.Appointments.items.findIndex(cp => {
-    return cp.AppointmentId.toString() === Appointment._id.toString();
-  });*/
 
   const updatedCartItems = [...this.Appointments.items];
 
@@ -77,6 +83,21 @@ doctorSchema.methods.addToCart = function(Appointment) {
     items: updatedCartItems
   };
   this.Appointments = updatedCart;
+  return this.save();
+};
+
+doctorSchema.methods.addToComments = function(comment) {
+
+  const updatedCommentItems = [...this.comments.items];
+
+  //pushing new appointment to appointments arr
+  updatedCommentItems.push({
+    comment: comment
+  });
+  const updatedCart = {
+    items: updatedCommentItems
+  };
+  this.comments = updatedCart;
   return this.save();
 };
 

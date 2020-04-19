@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Smart Clinic System</title>
+
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/scrolling-nav.css" rel="stylesheet">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js"></script>
+
+</head>
+
+<body id="page-top" class="indexBody">
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container-fluid">
+        <a class="navbar-brand js-scroll-trigger" href="index.html"><img src="img/logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger active" href="/dashboard"><i class="far fa-user-circle"></i> Dashboard</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Profile -->
+  <section id="profile" class="bg-light" style="height: 36rem; padding-top: 5rem;">
+    <article class="container-fluid mt-5 mb-5" style="margin-left: 0.1%;">
+    
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card kl-card kl-xl kl-shine kl-show">
+
+                    <div class="kl-card-block kl-xl bg-primary kl-shadow-b kl-overlay kl-slide-in kl-show">
+                        
+                        <div class="kl-card-overlay kl-card-overlay-split-q kl-dark kl-inverse">
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            
+                            <div class="kl-card-item kl-show">
+                                <div class="kl-figure-block">
+                                    <h4 class="card-title">Dr. <%= doc.firstName %> <%= doc.lastName %></h4>
+                                    <p class="card-text">Education: Harvard</p>
+                                    <p class="card-text">Specialization: <%= doc.specialization %></p>
+                                    <p class="card-text">Contact: <%= doc.email %></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="#" class="kl-card-avatar"><img class="kl-b-danger kl-b-circle kl-b-5 kl-slow kl-shadow-br kl-reveal kl-shine" style="height: 9rem; width: 10rem; margin-left: 16rem; margin-top: 2rem;" src="<%= doc.img %>"></a> 
+                        <p class="kl-card-avatar kl-pm kl-slow" style="color:white; margin-top: 5rem; font-size: 1.3rem;">Hover to View Details</p>
+
+                        <div class="kl-background" style="background-image: linear-gradient(to right,rgb(52, 188, 230), rgb(4, 163, 163));"></div>
+                    </div>
+                </div>
+            </div>
+            
+            </div><!-- column end -->
+            <br>
+            <br>
+            
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-4">
+                
+                <div class="card kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                    <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                        <div class="kl-card-overlay kl-card-overlay-split-h-3 kl-dark kl-inverse kl-left-in">
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                            <div class="kl-card-overlay-item"></div>
+                        </div>
+                        <div class="kl-card-item kl-pm kl-show">
+                            <div class="kl-figure-block">
+                                <span class="kl-figure" style="color:white;font-size: 2rem;">0</span>
+                            </div>
+                        </div>
+                        <p class="kl-card-avatar kl-pm kl-slow" style="color:white; font-size: 1.3rem;">Successful Visits</p> 
+                        <div class="kl-background" style="background-image: linear-gradient(to right,rgb(56, 218, 97), rgb(10, 143, 21));">
+                        </div>
+                    </div>
+                </div> <!-- card end -->
+            
+            </div>
+            <div class="col-md-4">
+              <div class="card kl-card kl-xl kl-reveal kl-fade kl-overlay kl-show kl-slide-in">
+                <div class="kl-card-block kl-md bg-primary kl-shadow-br kl-overlay">
+                    <div class="kl-card-overlay kl-card-overlay-split-h-3 kl-dark kl-inverse kl-left-in">
+                        <div class="kl-card-overlay-item"></div>
+                        <div class="kl-card-overlay-item"></div>
+                        <div class="kl-card-overlay-item"></div>
+                    </div>
+                    <div class="kl-card-item kl-pm kl-show">
+                        <div class="kl-figure-block">
+                            <span class="kl-figure" style="color:white; font-size: 2rem;"><%= len %></span>
+                        </div>
+                    </div>
+                    <p class="kl-card-avatar kl-pm kl-slow" style="color:white; font-size: 1.3rem;">Total Appointments</p> 
+                    <div class="kl-background" style="background-image: linear-gradient(to right,rgb(226, 68, 47), rgb(189, 9, 9));">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </article>
+    </section>
+
+<!-- Appointments -->
+<section id="appointments" style="padding-top: 5rem; padding-bottom: 5rem;">
+<div class="container" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header" style="background-image: linear-gradient(to right,rgb(52, 188, 230), rgb(4, 163, 163)); color: white; font-size: 1.5rem;">Appointments</div>
+            <div class="card-body">
+              <div class="scrollable">
+                
+                <%
+                var count = 1; 
+                for (let appointment of appointments){ %>
+                <div class="card mb-3" style="max-width: 35rem;">
+                    <div class="row no-gutters">
+                      <div class="col-md-12">
+                        <div class="card-body">
+                          <h5 class="card-title">Appointment# <%= count %></h5>
+                          <p class="card-text">Reason: "<%= appointment.description %>"</p>
+                          <p class="card-text">Time: <%= appointment.time %> <%= appointment.date %></p>
+                          <div class="card-button">
+                            <a href="#" class="btn btn-success" role="button">Accept</a>
+                            <a href="#" class="btn btn-danger" role="button">Reject</a>
+                        </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Smart Clinic 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+
+</body>
+
+</html>

@@ -58,6 +58,26 @@ exports.getAppointments = (req, res, next) => {
   });
 };
 
+exports.getDashboard = (req, res, next) => {
+  const Appointments = req.session.user.Appointments.items;
+  var aps = [];
+  
+  for (var i=0; i<Appointments.length; i++)
+  aps.push(Appointments[i].appointId);
+
+  var len = aps.length;
+
+  Appointment.find().where('_id').in(aps).exec((err, records) => {
+    res.render('auth/dashboard', {
+      appointments: records,
+      doc: req.session.user,
+      path: '/dashboard',
+      len: len,
+      pageTitle: 'Dashboard'
+     });
+  });
+};
+
 exports.getSignup = (req, res, next) => {
   let message = req.flash('error');
   if (message.length > 0) {

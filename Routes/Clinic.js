@@ -19,4 +19,6 @@ router.get('/doctors', shopController.getDoctors);
 
 router.get('/membership', shopController.getMembership);
 
+router.post('/comment/:DocID', shopController.postComment);
+
 module.exports = router;

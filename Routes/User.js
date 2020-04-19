@@ -24,4 +24,6 @@ router.post('/logout', authController.postLogout);
 
 router.get('/userappointments',authController.getAppointments);
 
+router.get('/dashboard',authController.getDashboard);
+
 module.exports = router;

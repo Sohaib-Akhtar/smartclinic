@@ -103,11 +103,13 @@
       </ul>
       <br>
       <div id="myDIV" class ="Dcontainer">
-        <% for (let doctor of docs) { %>
+        <%
+        var id = 0; 
+        for (let doctor of docs) { %>
           <div class="filterDiv <%= doctor.specialization %> card mb-3">
               <div class="row padding">
                   <div class="col-md-4" >
-                      <img src="<%= doctor.img %>" class="card-img" style="height: 100%;width: 100%;padding-top: 10%;padding-left: 10%;" alt="Sins">
+                      <img src="<%= doctor.img %>" class="card-img" style="height: 20rem;width: 20rem;padding-top: 10%;padding-left: 10%;" alt="Sins">
                   </div>
                   <div class="col-md-8">
                       <div class="card-body">
@@ -124,6 +126,7 @@
                               <span class="fa fa-star"></span>
                             <% } %>
                           </div>
+                          <% if (!isDoc){ %>
                           <div class="card-button">
                               <a href="appointment/<%= doctor._id %>" class="btn btn-primary btn-lg" role="button">
                                 <input type="hidden" name="DocID" value="<%= doctor._id %>">
@@ -131,60 +134,33 @@
                               </a>
 
                             <!-- Drop Down comment-->
-                            <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                            <button class="btn btn-primary btn-lg" type="button" data-toggle="collapse" data-target="#collapseExample<%= id %>" aria-expanded="false" aria-controls="collapseExample">
                                 Comment
                             </button>
                             <br>
                             <br>
-                            <div class="collapse" id="collapseExample">
+                            <div class="collapse" id="collapseExample<%= id %>">
                               <div class="card card-body">
-                                <div class="form-group">
-                                  <label for="comment">Comment:</label>
-                                  <textarea class="form-control" rows="2" id="comment"></textarea>
-                                </div> 
-                                
-                                  <button type="button" class="btn btn-primary">Post</button>
-                                
+                                <form action="comment/<%= doctor._id %>" method="POST" id="fileForm" role="form">
+                                  <div class="form-group">
+                                    <label for="comment">Comment:</label>
+                                    <textarea class="form-control" rows="2" id="comment" name="comment"></textarea>
+                                  </div> 
+                                  <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+                                  <input type="hidden" name="DocID" value="<%= doctor._id %>">
+                                  <input class="btn btn-primary btn-lg" type="submit" name="submit_reg" value="Submit">
+                                </form>
                               </div>
-                            
                             </div>
-
-
-                              <!-- Button to Open the Popup -->
-                              <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Comment</button> -->
-                              <!-- The Popup -->
-                              <!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                  <div class="modal-content"> -->
-                                    <!-- Popup Header -->
-                                      <!-- <div class="modal-header">
-                                            <h5 class="modal-title" id="myModalLabel">Add Comment</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            </button>
-                                      </div> -->
-                                      <!-- Popup body -->
-                                      <!-- <div class="modal-body">
-                                        <form>
-                                        <div class="form-group">
-                                          <label for="message-text" class="col-form-label">Message:</label>
-                                          <textarea class="form-control" id="message-text"></textarea>
-                                        </div>
-                                        </form>
-                                      </div>
-                                      <div class="modal-footer">
-                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-primary">Post</button>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div> -->
                           </div>
+                          <% } %>
                       </div>
                   </div>
               </div>
           </div>
-        <% } %>
+        <%
+        id+=1; 
+          } %>
     </div>
     </section> 
     <script>
