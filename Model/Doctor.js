@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-
+const Appointment = require('../Model/Appointment');
+const User = require('../Model/User');
 const Schema = mongoose.Schema;
 
 const doctorSchema = new Schema({
@@ -103,10 +104,29 @@ doctorSchema.methods.addToComments = function(comment) {
 
 doctorSchema.methods.removeFromCart = function(AppointmentId) {
   const updatedCartItems = this.Appointments.items.filter(item => {
-    return item.AppointmentId.toString() !== AppointmentId.toString();
+    return item.appointId.toString() !== AppointmentId.toString();
   });
   this.Appointments.items = updatedCartItems;
-  return this.save();
+  mongoose
+  .model('User')
+  .find()
+  .then(user => {
+    var brek = 0;
+    for (var i=0;i<user.length;++i){
+      for (var j=0;j<user[i].Appointments.items.length;++j){
+        if (user[i].Appointments.items[j].appointId.toString() == AppointmentId.toString()){
+          user[i].Appointments.items[j].status = 'Declined';
+          brek+=1;
+          user[i].save();
+          break;
+        }
+      }
+      if(brek > 0)
+      break;
+    }
+    return this.save();
+  })
+  .catch(err => console.log(err));
 };
 
 doctorSchema.methods.clearCart = function() {

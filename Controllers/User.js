@@ -36,7 +36,9 @@ exports.getLoginDoc = (req, res, next) => {
 
 exports.getAppointments = (req, res, next) => {
 
-  User.findOne({ _id: req.user._id}).then(user => {
+  User
+  .findOne({ _id: req.user._id})
+  .then(user => {
     const Appointments = user.Appointments.items;
   var aps = [];
   
@@ -51,6 +53,7 @@ exports.getAppointments = (req, res, next) => {
 
     Doctor.find().where('_id').in(ids).exec((err, docs) => {
       res.render('auth/appointments', {
+      user: user,
       appointments: records,
       docs: docs,
       path: '/userappointments',
@@ -66,8 +69,12 @@ exports.getAppointments = (req, res, next) => {
 };
 
 exports.getDashboard = (req, res, next) => {
-  const Appointments = req.session.user.Appointments.items;
-  const Comments = req.session.user.comments.items;
+
+  Doctor
+  .findOne({ _id: req.session.user._id})
+  .then(user => {
+  const Appointments = user.Appointments.items;
+  const Comments = user.comments.items;
   var aps = [];
   
   for (var i=0; i<Appointments.length; i++)
@@ -85,6 +92,10 @@ exports.getDashboard = (req, res, next) => {
       pageTitle: 'Dashboard'
      });
   });
+})
+.catch(err => {
+  console.log(err)
+});
 };
 
 exports.getSignup = (req, res, next) => {
@@ -104,7 +115,18 @@ exports.getSignup = (req, res, next) => {
 exports.getRemoveAppointment = (req, res, next) => {
   const ApID = req.params.AppointID;
   req.user.removeFromCart(ApID);
-  res.redirect('/userappointments');
+  res.redirect('/userappointments');  
+};
+
+exports.getRemoveAppointmentDoc = (req, res, next) => {
+  const ApID = req.params.AppointID;
+  Doctor
+  .findOne({_id: req.session.user._id})
+  .then(user =>{
+    user.removeFromCart(ApID);
+    res.redirect('/dashboard');
+  })
+  .catch(err => console.log(err));
 };
 
 exports.getSignupDoc = (req, res, next) => {

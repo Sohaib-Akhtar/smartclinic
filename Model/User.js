@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Appointment = require('../Model/Appointment');
 const Schema = mongoose.Schema;
+const Doctor = require('../Model/Doctor');
 
 const userSchema = new Schema({
   email: {
@@ -71,7 +72,15 @@ userSchema.methods.removeFromCart = function(AppointmentId) {
     return item.appointId.toString() !== AppointmentId.toString();
   });
   this.Appointments.items = updatedCartItems;
-  Appointment.findOneAndDelete({ _id:AppointmentId });
+  Appointment.findOneAndDelete({ _id: AppointmentId.toString() })
+  .then(appoint => {
+    Doctor.
+    findOne({_id : appoint.docId})
+    .then(doc => {
+      doc.removeFromCart(AppointmentId);
+    })
+  })
+  .catch(err => console.log(err));
   return this.save();
 };
 

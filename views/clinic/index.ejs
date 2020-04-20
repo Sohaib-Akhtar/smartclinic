@@ -56,7 +56,12 @@
             <li>
                 <a class="nav-link js-scroll-trigger" href="/doctors"><i class="fa fa-user-md"></i> Doctors</a>
             </li>
-            <% if (isAuthenticated){ %>
+            <% if (isDoc){ %>
+            <li>
+                <a class="nav-link js-scroll-trigger" href="/dashboard"><i class="far fa-user-circle"></i> Dashboard</a>
+            </li>
+            <% } 
+            if (isAuthenticated){ %>
                 <% if (!isDoc){ %>
                 <li>
                     <a class="nav-link js-scroll-trigger" href="/membership"><i class='far fa-gem'></i> Membership</a>

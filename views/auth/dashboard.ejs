@@ -147,14 +147,20 @@
                           <p class="card-text">Reason: "<%= appointment.description %>"</p>
                           <p class="card-text">Time: <%= appointment.time %> <%= appointment.date %></p>
                           <div class="card-button">
-                            <a href="#" class="btn btn-success" role="button">Accept</a>
-                            <a href="#" class="btn btn-danger" role="button">Reject</a>
+                            <a href="removeappointmentdoc/<%= appointment._id %>" class="btn btn-success" role="button">
+                              <input type="hidden" name="AppointID" value="<%= appointment._id %>"> Accept
+                            </a>
+                            <a href="removeappointmentdoc/<%= appointment._id %>" class="btn btn-danger" role="button">
+                              <input type="hidden" name="AppointID" value="<%= appointment._id %>"> Reject
+                            </a>
                         </div>
                         </div>
                       </div>
                     </div>
                 </div>
-                <% } %>
+                <%
+                count+=1;
+               } %>
               </div>
             </div>
           </div>

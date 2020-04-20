@@ -81,11 +81,11 @@
                         <hr>
                         <p>"<%= appointment.description %>"</p>
                         <p><b>Due on:</b> <%= appointment.time %> <%= appointment.date %></p>
-                        <p><b>Status:</b> Pending</p>
+                        <p><b>Status:</b> <%= user.Appointments.items[count].status %></p>
                         <div style="text-align: center;">
                           <a href="removeappointment/<%= appointment._id %>" class="btn btn-outline-dark" role="button">
                             <input type="hidden" name="AppointID" value="<%= appointment._id %>"> Cancel Maybe?
-                        </a>
+                          </a>
                         </div>
                     </div>
                 </div>

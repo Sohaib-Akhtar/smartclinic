@@ -28,4 +28,6 @@ router.get('/dashboard',authController.getDashboard);
 
 router.get('/removeappointment/:AppointID',authController.getRemoveAppointment);
 
+router.get('/removeappointmentdoc/:AppointID',authController.getRemoveAppointmentDoc);
+
 module.exports = router;
