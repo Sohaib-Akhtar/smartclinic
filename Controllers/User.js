@@ -52,6 +52,7 @@ exports.getAppointments = (req, res, next) => {
     ids.push(records[i].docId);  
 
     Doctor.find().where('_id').in(ids).exec((err, docs) => {
+      console.log(docs);
       res.render('auth/appointments', {
       user: user,
       appointments: records,

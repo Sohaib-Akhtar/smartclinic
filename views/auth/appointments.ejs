@@ -69,7 +69,7 @@
     <!-- Cards -->
       <div id="myDIV" class ="Dcontainer">
         <%
-        var count = 0;
+        var count = docs.length-1;
         for (let appointment of appointments){ 
         %>
         <div class="gyno card mb-3">
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <% count+=1;
+        <% count-=1;
             } %>
     </div>
     </section> 
